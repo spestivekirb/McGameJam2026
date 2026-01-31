@@ -8,8 +8,8 @@ public class Playermove : MonoBehaviour
 
     [Header("Player Settings")]
     [SerializeField] private string playerName;
-    [SerializeField] private float jumpHeight = 20f;
-    [SerializeField] private float speed = 10.1f; // when you have float value, put f after it, serializeField makes private variable visible and editable in inspector
+    [SerializeField] private float jumpHeight = 5f;
+    [SerializeField] private float speed = 5.1f; // when you have float value, put f after it, serializeField makes private variable visible and editable in inspector
     private bool isAlive = true;
     [SerializeField] private bool canMove = true;
     [SerializeField] private bool canJump = true;
