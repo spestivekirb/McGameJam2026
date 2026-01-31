@@ -6,7 +6,7 @@ public class shadowFollower : MonoBehaviour
     [SerializeField] private playerReplay recorder;
 
     [Header("Replay")]
-    [SerializeField] private float delaySeconds = 1.0f;
+    [SerializeField] private float delaySeconds = 2.0f;
 
     [Header("Movement")]
     [SerializeField] private float speed = 5.1f;
@@ -99,5 +99,15 @@ public class shadowFollower : MonoBehaviour
         if (other.CompareTag("Player"))
         {
         }
+    }
+
+    public void ChangeDelay(float delay)
+    {
+        delaySeconds = delay;
+    }
+
+    public float GetDelay()
+    {
+        return delaySeconds;
     }
 }

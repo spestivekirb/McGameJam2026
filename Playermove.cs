@@ -45,7 +45,6 @@ public class Playermove : MonoBehaviour
     // update is called once per frame, check input of player
     void Update()
     {
-        Debug.Log("Update called");
         handleCollision();
         handleInput();
         handleAnimation();
@@ -55,7 +54,6 @@ public class Playermove : MonoBehaviour
     // slower than Update, calculate physics here, called at fixed time intervals, 50 times per second default
     private void FixedUpdate()
     {
-        Debug.Log("FixedUpdate called");
     }
 
     private void handleInput()
