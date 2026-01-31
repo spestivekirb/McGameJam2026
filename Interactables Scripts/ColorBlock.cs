@@ -6,8 +6,6 @@ public class ColorBlock : MonoBehaviour
     public bool isRed;
 
     public Collider2D boxcollider;
-    public Color oncolor;
-    private Color offcolor;
 
     private SpriteRenderer spriterender;
 
@@ -15,9 +13,7 @@ public class ColorBlock : MonoBehaviour
     {
         boxcollider = GetComponent<Collider2D>();
         spriterender = GetComponent<SpriteRenderer>();
-        
-        oncolor = new Color(spriterender.color.r, spriterender.color.g, spriterender.color.b, 1.0f);
-        offcolor = new Color(oncolor.r, oncolor.g, oncolor.b, 0.3f);
+        ;
     }
 
     public void UpdateState(bool redOn)
@@ -26,12 +22,17 @@ public class ColorBlock : MonoBehaviour
 
         boxcollider.enabled = isOn;
 
+        Color tempColor = spriterender.color;
+        
         if (isOn)
         {
-            spriterender.color = oncolor;
-        } else
-        {
-            spriterender.color = offcolor;
+            tempColor.a = 1.0f;
         }
+        else
+        {
+            tempColor.a = 0.3f;
+        }
+
+        spriterender.color = tempColor;
     }
 }
