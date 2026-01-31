@@ -59,7 +59,7 @@ public class playerReplay : MonoBehaviour
             }
         }
 
-        // Can't go back that far, oldest frame is the first one
+        // can't go back that far, oldest frame is the first one
         frame = frames[0];
         return true;
     }

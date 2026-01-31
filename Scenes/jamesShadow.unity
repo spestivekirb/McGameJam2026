@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: 
-  jumpHeight: 5
+  jumpHeight: 6.7
   speed: 5.1
   canMove: 1
   canJump: 1
@@ -517,10 +517,10 @@ MonoBehaviour:
   recorder: {fileID: 128344950}
   delaySeconds: 1
   speed: 5.1
-  jumpHeight: 5
+  jumpHeight: 6.7
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   facingRight: 1
 --- !u!70 &904642814
 CapsuleCollider2D:
