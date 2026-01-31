@@ -14,13 +14,12 @@ public class shadowFollower : MonoBehaviour
 
     [Header("Collision")]
     [SerializeField] private LayerMask whatIsGround;
-    [SerializeField] private bool isGrounded = true;
 
     private Animator animator;
     private Rigidbody2D rb;
     private CapsuleCollider2D col;
-    private Playermove player;
 
+    private bool isGrounded;
     [SerializeField] private bool facingRight = true;
 
     private void Awake()
@@ -28,7 +27,6 @@ public class shadowFollower : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
         col = GetComponent<CapsuleCollider2D>();
-        player = GetComponent<Playermove>();
     }
 
     private void Update()
@@ -64,9 +62,9 @@ public class shadowFollower : MonoBehaviour
     {
         if (animator == null) return;
 
-        animator.SetFloat("Shadow X", rb.linearVelocity.x);
+        animator.SetFloat("X velocity", rb.linearVelocity.x);
         animator.SetBool("isGrounded", isGrounded);
-        animator.SetFloat("Shadow Y", rb.linearVelocity.y); 
+        animator.SetFloat("Y velocity", rb.linearVelocity.y);
     }
 
     private void HandleCollision()

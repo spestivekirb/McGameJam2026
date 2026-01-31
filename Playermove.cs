@@ -37,6 +37,9 @@ public class Playermove : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         col = GetComponent<CapsuleCollider2D>();
         replay = GetComponent<playerReplay>();
+
+        if (graphics == null)
+            graphics = animator.transform;
     }
     // start is called before first update is called after monobehaviour is created, initialize variables and entities here
     private void Start()
@@ -101,14 +104,6 @@ public class Playermove : MonoBehaviour
     public void attackEnd() {
         isAttacking = false;
     }
-
-    // public void DealDamage() {
-    //     Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackHitbox.position, attackRange, whatisEnemy);
-    //     Debug.Log("Hit " + hitEnemies.Length + " enemies.");
-    //     foreach (Collider2D enemy in hitEnemies) {
-    //         enemy.GetComponent<Enemy>()?.TakeDamage(20);
-    //     }
-    // }
     
     
     private void handleCollision()
@@ -135,6 +130,13 @@ public class Playermove : MonoBehaviour
         if (replay != null)
             replay.QueueJump();
         Debug.Log(playerName + " Jumped");
+    }
+
+    private void die()
+    {
+        isAlive = false;
+        animator.SetTrigger("die");
+        Debug.Log(playerName + " Died");
     }
 
     private void handleFlip()
