@@ -5,11 +5,13 @@ public class Playermove : MonoBehaviour
     private Animator animator;
     private Rigidbody2D rb;
     private Collider2D col;
+    private playerReplay replay;
+
 
     [Header("Player Settings")]
     [SerializeField] private string playerName;
-    [SerializeField] private float jumpHeight = 20f;
-    [SerializeField] private float speed = 10.1f; // when you have float value, put f after it, serializeField makes private variable visible and editable in inspector
+    [SerializeField] private float jumpHeight = 6.7f;
+    [SerializeField] private float speed = 5.1f; // when you have float value, put f after it, serializeField makes private variable visible and editable in inspector
     private bool isAlive = true;
     [SerializeField] private bool canMove = true;
     [SerializeField] private bool canJump = true;
@@ -32,6 +34,7 @@ public class Playermove : MonoBehaviour
         Debug.Log("Awake called");
         animator = GetComponentInChildren<Animator>();
         col = GetComponent<CapsuleCollider2D>();
+        replay = GetComponent<playerReplay>();
     }
     // start is called before first update is called after monobehaviour is created, initialize variables and entities here
     private void Start()
@@ -126,8 +129,10 @@ public class Playermove : MonoBehaviour
     private void jump()
     {
         isGrounded = false;
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpHeight);
-            Debug.Log(playerName + " Jumped");
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpHeight); 
+        if (replay != null)
+            replay.QueueJump();
+        Debug.Log(playerName + " Jumped");
     }
 
     private void handleFlip()
