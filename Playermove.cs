@@ -100,13 +100,13 @@ public class Playermove : MonoBehaviour
         isAttacking = false;
     }
 
-    public void DealDamage() {
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackHitbox.position, attackRange, whatisEnemy);
-        Debug.Log("Hit " + hitEnemies.Length + " enemies.");
-        foreach (Collider2D enemy in hitEnemies) {
-            enemy.GetComponent<Enemy>()?.TakeDamage(20);
-        }
-    }
+    // public void DealDamage() {
+    //     Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackHitbox.position, attackRange, whatisEnemy);
+    //     Debug.Log("Hit " + hitEnemies.Length + " enemies.");
+    //     foreach (Collider2D enemy in hitEnemies) {
+    //         enemy.GetComponent<Enemy>()?.TakeDamage(20);
+    //     }
+    // }
     
     
     private void handleCollision()
