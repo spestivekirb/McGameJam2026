@@ -8,10 +8,12 @@ public class ButtonPress : MonoBehaviour
 
     public GameObject targetObject;
 
+    public Transform visualSprite;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        startpos = transform.localPosition;
+        startpos = visualSprite.localPosition;
         presspos = startpos - new Vector3(0, pressdepth, 0);;
     }
 
@@ -23,9 +25,13 @@ public class ButtonPress : MonoBehaviour
 
 
     void OnTriggerEnter2D(Collider2D other) {
+
         if (other.CompareTag("Player"))
-        {
-            transform.localPosition = presspos;
+        {   
+
+
+            visualSprite.localPosition = presspos;
+            
         }
         IActivatable action = targetObject.GetComponent<IActivatable>();
 
@@ -39,9 +45,13 @@ public class ButtonPress : MonoBehaviour
     }
 
     void OnTriggerExit2D(Collider2D other) {
+        
         if (other.CompareTag("Player"))
         {
-            transform.localPosition = startpos;
+
+
+            visualSprite.localPosition = startpos;
+
         }
          IActivatable action = targetObject.GetComponent<IActivatable>();
 
