@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:Materials.meta
 guid: 5b20704366c97c3419e4c0293246775f
+========
+guid: 902a52a8aa14dde47a1127773b44ff23
+>>>>>>>> Stashed changes:Animations.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

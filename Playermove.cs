@@ -16,6 +16,7 @@ public class Playermove : MonoBehaviour
     [SerializeField] private bool canMove = true;
     [SerializeField] private bool canJump = true;
     [SerializeField] private bool isAttacking= false;
+    [SerializeField] private Transform graphics; // drag player/Animator here
 
     [Header("Collision properties")]
     [SerializeField] private bool facingRight = true;
@@ -26,6 +27,7 @@ public class Playermove : MonoBehaviour
     [SerializeField] private float attackRange;
     [SerializeField] private Transform attackHitbox;
     [SerializeField] private LayerMask whatisEnemy;
+    
 
     // awake is called when the script instance is being loaded, find component or other object for script
     private void Awake()
@@ -60,7 +62,7 @@ public class Playermove : MonoBehaviour
 
     private void handleInput()
     {
-        if (canMove) { 
+        if (canMove && isAlive) { 
             rb.linearVelocity = new Vector2(Input.GetAxisRaw("Horizontal") * speed, rb.linearVelocity.y);
 
             if (Input.GetKeyDown(KeyCode.Space) && canJump) // get key down activates when key pressed
@@ -70,7 +72,7 @@ public class Playermove : MonoBehaviour
                     jump();
                 }
             }
-            if (Input.GetKeyDown(KeyCode.Mouse0)) // get key down activates on mouse  click
+            if (Input.GetKeyDown(KeyCode.Mouse0)) // get key down activates on mouse click
             {
                 if (isAlive && isGrounded)
                 {
@@ -82,7 +84,7 @@ public class Playermove : MonoBehaviour
         }
     }
 
-       private void handleAnimation()
+    private void handleAnimation()
     {
         animator.SetFloat("X velocity", rb.linearVelocity.x);
         animator.SetBool("isGrounded", isGrounded);
@@ -137,7 +139,6 @@ public class Playermove : MonoBehaviour
 
     private void handleFlip()
     {
-        if (!canMove || isAttacking) return;
         if (rb.linearVelocity.x > 0 && !facingRight)
         {
             Flip();
@@ -149,7 +150,9 @@ public class Playermove : MonoBehaviour
     }
     private void Flip()
     {
-        transform.Rotate(0, 180, 0);
+        Vector3 s = graphics.localScale;
+        s.x = Mathf.Abs(s.x) * (facingRight ? -1 : 1); // clean, avoids drift
+        graphics.localScale = s;
         facingRight = !facingRight;
     }
 
