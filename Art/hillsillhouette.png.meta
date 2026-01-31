@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 718a06d0a58280049a866e5f73172151
+guid: 5db937ad34ad31a44b9b23e496a7c470
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5894843241630373336
-    second: hillsilloutte_0
+      213: 4163017389893607557
+    second: hillsillhouette_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hillsilloutte_0
+      name: hillsillhouette_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 82a6200dd4f413ea0800000000000000
-      internalID: -5894843241630373336
+      spriteID: 580e16e624206c930800000000000000
+      internalID: 4163017389893607557
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      hillsilloutte_0: -5894843241630373336
+      hillsillhouette_0: 4163017389893607557
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
