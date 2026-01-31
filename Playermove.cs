@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Playermove : MonoBehaviour
 {
@@ -160,6 +161,29 @@ public class Playermove : MonoBehaviour
         if (attackHitbox == null) return;
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackHitbox.position, attackRange);
+    }
+
+    public void FreezePlayer(float seconds)
+    {
+        StartCoroutine(FreezeRoutine(seconds));
+    }
+
+    private IEnumerator FreezeRoutine(float seconds)
+    {
+        Vector2 savedVelocity = rb.linearVelocity;
+        float savedGravity = rb.gravityScale;
+        canMove = false;
+        
+        rb.linearVelocity = Vector2.zero;
+        rb.gravityScale = 0;
+        // 3. The actual wait timer
+        yield return new WaitForSeconds(seconds);
+
+
+        rb.linearVelocity = savedVelocity;
+        rb.gravityScale = savedGravity;
+        
+        canMove = true;
     }
     
 }

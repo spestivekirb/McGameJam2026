@@ -4,6 +4,8 @@ public class SlowPortal : MonoBehaviour
 
 {
     public shadowFollower shadow_script;
+
+    public Playermove player_script;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,6 +21,7 @@ public class SlowPortal : MonoBehaviour
             shadow_script.ChangeDelay(delay - 0.5f);
             Debug.Log("Slow Portal");
             Debug.Log(shadow_script.GetDelay());
+            player_script.FreezePlayer(0.5f);
         }
        
     }

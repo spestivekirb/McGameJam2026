@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections; 
 
 public class SpeedPortal : MonoBehaviour
 
@@ -19,7 +20,15 @@ public class SpeedPortal : MonoBehaviour
             shadow_script.ChangeDelay(delay + 0.5f);
             Debug.Log("Speed Portal");
             Debug.Log(shadow_script.GetDelay());
+            StartCoroutine(FreezeDelay());
         }
        
+    }
+
+    private IEnumerator FreezeDelay()
+    {
+        yield return new WaitForSeconds(shadow_script.GetDelay());
+        shadow_script.FreezeShadow(0.5f);
+
     }
 }

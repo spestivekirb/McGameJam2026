@@ -16,7 +16,7 @@ public class ColorBlock : MonoBehaviour
         boxcollider = GetComponent<Collider2D>();
         spriterender = GetComponent<SpriteRenderer>();
         
-        oncolor = spriterender.color;
+        oncolor = new Color(spriterender.color.r, spriterender.color.g, spriterender.color.b, 1.0f);
         offcolor = new Color(oncolor.r, oncolor.g, oncolor.b, 0.3f);
     }
 
