@@ -8,11 +8,11 @@ public class shadowFollower : MonoBehaviour
     [Header("Replay")]
     [SerializeField] private float delaySeconds = 1.0f;
 
-    [Header("Movement (match your player)")]
+    [Header("Movement")]
     [SerializeField] private float speed = 5.1f;
-    [SerializeField] private float jumpHeight = 5f;
+    [SerializeField] private float jumpHeight = 6.7f;
 
-    [Header("Collision (optional, for animation only)")]
+    [Header("Collision")]
     [SerializeField] private LayerMask whatIsGround;
 
     private Animator animator;

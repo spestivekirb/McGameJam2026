@@ -11,19 +11,14 @@ public class playerReplay : MonoBehaviour
     }
 
     [SerializeField] private float maxRecordSeconds = 10f;
-
     private readonly List<InputFrame> frames = new List<InputFrame>(2048);
     public IReadOnlyList<InputFrame> Frames => frames;
 
     private bool jumpQueued;
 
 
-    // record jumps
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-            jumpQueued = true; 
-    }
+    public void QueueJump() => jumpQueued = true;
+
 
 
     private void FixedUpdate()
