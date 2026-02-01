@@ -1219,6 +1219,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d9565f4d5eed347a3db82233e8374b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player_script: {fileID: 128344948}
+  maxRecordSeconds: 10
 --- !u!1 &156932444
 GameObject:
   m_ObjectHideFlags: 0
@@ -1769,6 +1771,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34cee0ed6f9977745918a4bf4c2b09d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnDistance: 1
+  spawnDelay: 0.5
+  recorder: {fileID: 128344950}
+  delaySeconds: 2
+  speed: 5.1
+  jumpHeight: 11
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 0
+  player_script: {fileID: 128344948}
+  isGrounded: 0
+  facingRight: 1
 --- !u!70 &201852170
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 65058224}
   - component: {fileID: 65058226}
   - component: {fileID: 65058225}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: ball
   m_TagString: Ball
   m_Icon: {fileID: 0}
@@ -370,7 +370,7 @@ Transform:
   m_GameObject: {fileID: 65058221}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.19, y: 2.2, z: 1}
+  m_LocalPosition: {x: -1.94, y: 2.39, z: 1}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -424,7 +424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac85abf244ea5c9409ff2931803eb591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strikeForce: 15
+  strikeForce: 25
 --- !u!50 &65058226
 Rigidbody2D:
   serializedVersion: 5
@@ -439,8 +439,8 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 5
   m_LinearDamping: 0
-  m_AngularDamping: 0.02
-  m_GravityScale: 1
+  m_AngularDamping: 0.2
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -594,7 +594,7 @@ GameObject:
   - component: {fileID: 110665119}
   - component: {fileID: 110665118}
   - component: {fileID: 110665120}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: bridge (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -857,6 +857,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d9565f4d5eed347a3db82233e8374b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player_script: {fileID: 0}
+  maxRecordSeconds: 10
 --- !u!1 &138356534
 GameObject:
   m_ObjectHideFlags: 0
@@ -2135,7 +2137,7 @@ GameObject:
   - component: {fileID: 746773545}
   - component: {fileID: 746773544}
   - component: {fileID: 746773546}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: boundary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2584,6 +2586,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34cee0ed6f9977745918a4bf4c2b09d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnDistance: 1
+  spawnDelay: 0.5
+  recorder: {fileID: 128344950}
+  delaySeconds: 2
+  speed: 5.1
+  jumpHeight: 6.7
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 0
+  player_script: {fileID: 128344948}
+  isGrounded: 0
+  facingRight: 1
 --- !u!70 &1023374012
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -5271,6 +5285,10 @@ PrefabInstance:
     - target: {fileID: 671830245525958353, guid: c5e2b6d44d87e3444be20b2f7304a320, type: 3}
       propertyPath: startpos.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 671830245525958353, guid: c5e2b6d44d87e3444be20b2f7304a320, type: 3}
+      propertyPath: bridgeScript
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 671830245525958353, guid: c5e2b6d44d87e3444be20b2f7304a320, type: 3}
       propertyPath: targetObject

@@ -46,7 +46,6 @@ public class shadowFollower : MonoBehaviour
 
         if (player_script != null)
         playerStartPos = player_script.transform.position;
-        gameObject.SetActive(false);
     }
 
     private void Update()

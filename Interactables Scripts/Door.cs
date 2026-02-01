@@ -33,10 +33,12 @@ public class Door : MonoBehaviour, IActivatable
     public void Activate()
     {
         curPos = openPos;
+        Debug.Log("Door Opening");
     }
 
     public void Deactivate()
     {
         curPos = closedPos;
+        Debug.Log("Door Closing");
     }
 }

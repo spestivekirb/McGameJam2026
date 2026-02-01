@@ -6417,7 +6417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d9565f4d5eed347a3db82233e8374b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player_script: {fileID: 0}
+  player_script: {fileID: 128344948}
   maxRecordSeconds: 10
 --- !u!1 &152214270
 GameObject:
@@ -7128,6 +7128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34cee0ed6f9977745918a4bf4c2b09d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnDistance: 0
+  spawnDelay: 6
   recorder: {fileID: 128344950}
   delaySeconds: 6
   speed: 5.1
@@ -13092,7 +13094,7 @@ Transform:
   m_GameObject: {fileID: 676178227}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.525, y: 2.853, z: 1}
+  m_LocalPosition: {x: 0.496, y: 2.853, z: 1}
   m_LocalScale: {x: 0.041326992, y: 0.20904003, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17791,7 +17793,7 @@ Transform:
   m_GameObject: {fileID: 901410356}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.05999962, z: 0}
+  m_LocalPosition: {x: 0.04, y: 0.05999962, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28395,7 +28397,7 @@ PrefabInstance:
     - target: {fileID: 671830245525958353, guid: c5e2b6d44d87e3444be20b2f7304a320, type: 3}
       propertyPath: targetObject
       value: 
-      objectReference: {fileID: 1699049441}
+      objectReference: {fileID: 1222320052}
     - target: {fileID: 995643872833908096, guid: c5e2b6d44d87e3444be20b2f7304a320, type: 3}
       propertyPath: m_Name
       value: Button
