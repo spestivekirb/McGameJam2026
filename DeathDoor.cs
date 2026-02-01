@@ -22,7 +22,7 @@ public class DeathDoor : MonoBehaviour
             var player = other.GetComponent<Playermove>();
             if (player != null)
             {
-                // player.die();
+                player.die();
                 Debug.Log("Pillar crushed the player!");
             }
         }

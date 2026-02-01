@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Playermove : MonoBehaviour
 {
@@ -138,6 +139,7 @@ public class Playermove : MonoBehaviour
     {
         if (!isAlive) return;
         isAlive = false;
+        animator.SetTrigger("die");
         StartCoroutine(ReloadAfterDelay(1f));
     }
 
@@ -146,7 +148,7 @@ public class Playermove : MonoBehaviour
         yield return new WaitForSeconds(delay);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-    
+
     private void handleFlip()
     {
         if (rb.linearVelocity.x > 0 && !facingRight)
