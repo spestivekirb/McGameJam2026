@@ -19,7 +19,11 @@ public class shadowFollower : MonoBehaviour
     private Rigidbody2D rb;
     private CapsuleCollider2D col;
 
+<<<<<<< Updated upstream
     private bool isGrounded;
+=======
+    [SerializeField] private bool isGrounded;
+>>>>>>> Stashed changes
     [SerializeField] private bool facingRight = true;
 
     private void Awake()
