@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Playermove : MonoBehaviour
 {
@@ -13,7 +15,7 @@ public class Playermove : MonoBehaviour
     [SerializeField] private float jumpHeight = 6.7f;
     [SerializeField] private float speed = 5.1f; // when you have float value, put f after it, serializeField makes private variable visible and editable in inspector
     private bool isAlive = true;
-    [SerializeField] private bool canMove = true;
+    [SerializeField] public bool canMove = true;
     [SerializeField] private bool canJump = true;
     [SerializeField] private bool isAttacking= false;
     [SerializeField] private Transform graphics; // drag player/Animator here
@@ -27,6 +29,9 @@ public class Playermove : MonoBehaviour
     [SerializeField] private float attackRange;
     [SerializeField] private Transform attackHitbox;
     [SerializeField] private LayerMask whatisEnemy;
+
+    private bool isReloading = false;
+
     
 
     // awake is called when the script instance is being loaded, find component or other object for script
@@ -50,7 +55,6 @@ public class Playermove : MonoBehaviour
     // update is called once per frame, check input of player
     void Update()
     {
-        Debug.Log("Update called");
         handleCollision();
         handleInput();
         handleAnimation();
@@ -60,7 +64,6 @@ public class Playermove : MonoBehaviour
     // slower than Update, calculate physics here, called at fixed time intervals, 50 times per second default
     private void FixedUpdate()
     {
-        Debug.Log("FixedUpdate called");
     }
 
     private void handleInput()
@@ -132,11 +135,18 @@ public class Playermove : MonoBehaviour
         Debug.Log(playerName + " Jumped");
     }
 
-    private void die()
+    public void die()
     {
+        if (!isAlive) return;
         isAlive = false;
-        animator.SetTrigger("die");
-        Debug.Log(playerName + " Died");
+        animator.Play("die");
+        StartCoroutine(ReloadAfterDelay(1f));
+    }
+
+    private IEnumerator ReloadAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private void handleFlip()
@@ -153,7 +163,7 @@ public class Playermove : MonoBehaviour
     private void Flip()
     {
         Vector3 s = graphics.localScale;
-        s.x = Mathf.Abs(s.x) * (facingRight ? -1 : 1); // clean, avoids drift
+        s.x = Mathf.Abs(s.x) * (facingRight ? -1 : 1); 
         graphics.localScale = s;
         facingRight = !facingRight;
     }
@@ -167,6 +177,29 @@ public class Playermove : MonoBehaviour
         if (attackHitbox == null) return;
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackHitbox.position, attackRange);
+    }
+
+    public void FreezePlayer(float seconds)
+    {
+        StartCoroutine(FreezeRoutine(seconds));
+    }
+
+    private IEnumerator FreezeRoutine(float seconds)
+    {
+        Vector2 savedVelocity = rb.linearVelocity;
+        float savedGravity = rb.gravityScale;
+        canMove = false;
+        
+        rb.linearVelocity = Vector2.zero;
+        rb.gravityScale = 0;
+        // 3. The actual wait timer
+        yield return new WaitForSeconds(seconds);
+
+
+        rb.linearVelocity = savedVelocity;
+        rb.gravityScale = savedGravity;
+        
+        canMove = true;
     }
     
 }
