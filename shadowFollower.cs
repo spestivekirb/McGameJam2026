@@ -28,7 +28,7 @@ public class shadowFollower : MonoBehaviour
     private CapsuleCollider2D col;
 
     [SerializeField] private bool isGrounded;
->>>>>>> Stashed changes
+
 
     private bool isFrozen;
     [SerializeField] private bool facingRight = true;
