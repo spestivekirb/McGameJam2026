@@ -26,11 +26,13 @@ public class ButtonPress : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) {
 
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") || other.CompareTag("Shadow"))
         {   
 
 
             visualSprite.localPosition = presspos;
+            Debug.LogWarning("Button Pressed");
+
             
         }
         IActivatable action = targetObject.GetComponent<IActivatable>();
@@ -46,7 +48,7 @@ public class ButtonPress : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other) {
         
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") || other.CompareTag("Shadow"))
         {
 
 
