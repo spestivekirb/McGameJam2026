@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ballscript : MonoBehaviour
 {
-    public float strikeForce = 1f;
+    public float strikeForce = 10f;
     private Rigidbody2D rb;
 
     void Start()
