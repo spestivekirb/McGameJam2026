@@ -20,16 +20,21 @@ public class shadowFollower : MonoBehaviour
     private Rigidbody2D rb;
     private CapsuleCollider2D col;
 
+    public Playermove player_script;
+
     [SerializeField] private bool isGrounded;
 
     private bool isFrozen;
     [SerializeField] private bool facingRight = true;
+
+    private float stall_offset = 0f;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
         col = GetComponent<CapsuleCollider2D>();
+        player_script = Object.FindAnyObjectByType<Playermove>();
         isFrozen = false;
     }
 
@@ -42,23 +47,23 @@ public class shadowFollower : MonoBehaviour
 
     private void FixedUpdate()
     {
+
         if (recorder == null) return;
 
-        float t = Time.time - delaySeconds;
 
-        if (isFrozen) return;
-
+        float t = Time.time - delaySeconds; 
 
         if (!recorder.TryGetFrame(t, out var frame))
+        {
+            rb.linearVelocity = Vector2.zero;
             return;
-
+        }
 
         float targetX = frame.horizontal * speed;
 
         if (frame.jump)
         {
             rb.linearVelocity = new Vector2(targetX, jumpHeight);
-
         }
         else
         {

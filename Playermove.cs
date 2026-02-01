@@ -14,7 +14,7 @@ public class Playermove : MonoBehaviour
     [SerializeField] private float jumpHeight = 6.7f;
     [SerializeField] private float speed = 5.1f; // when you have float value, put f after it, serializeField makes private variable visible and editable in inspector
     private bool isAlive = true;
-    [SerializeField] private bool canMove = true;
+    [SerializeField] public bool canMove = true;
     [SerializeField] private bool canJump = true;
     [SerializeField] private bool isAttacking= false;
     [SerializeField] private Transform graphics; // drag player/Animator here
