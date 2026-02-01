@@ -868,7 +868,7 @@ MonoBehaviour:
   offset: 0
   upTimePercent: 0.95
   shadowObject: {fileID: 1323070205}
-  shadowRange: 2
+  shadowRange: 2.5
 --- !u!68 &95220981
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -1316,7 +1316,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d9565f4d5eed347a3db82233e8374b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxRecordSeconds: 10
 --- !u!1 &171579964
 GameObject:
   m_ObjectHideFlags: 0
@@ -1783,15 +1782,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34cee0ed6f9977745918a4bf4c2b09d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recorder: {fileID: 128344950}
-  delaySeconds: 3
-  speed: 5.1
-  jumpHeight: 11
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 64
-  isGrounded: 0
-  facingRight: 1
 --- !u!70 &201852170
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -3638,7 +3628,7 @@ MonoBehaviour:
   offset: 0
   upTimePercent: 0.95
   shadowObject: {fileID: 1313175685}
-  shadowRange: 2
+  shadowRange: 1.5
 --- !u!1 &383403364
 GameObject:
   m_ObjectHideFlags: 0
@@ -10901,7 +10891,7 @@ MonoBehaviour:
   offset: 5
   upTimePercent: 0.97
   shadowObject: {fileID: 1186907936}
-  shadowRange: 2
+  shadowRange: 1.5
 --- !u!1 &939898467
 GameObject:
   m_ObjectHideFlags: 0
@@ -11072,7 +11062,7 @@ Transform:
   m_GameObject: {fileID: 944348782}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.9318, y: 3.07, z: 1}
+  m_LocalPosition: {x: 0.9318, y: 2.06, z: 1}
   m_LocalScale: {x: 23.011396, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11665,12 +11655,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15464efc22a4ef74aa180e557fae4257, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cycleDuration: 3
+  cycleDuration: 2
   height: 3
   offset: 5
-  upTimePercent: 0.95
+  upTimePercent: 0.97
   shadowObject: {fileID: 1602726551}
-  shadowRange: 2
+  shadowRange: 1
 --- !u!1 &1003607777
 GameObject:
   m_ObjectHideFlags: 0
