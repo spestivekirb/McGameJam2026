@@ -1,4 +1,7 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Collections;
+
 
 public class Playermove : MonoBehaviour
 {
@@ -27,6 +30,9 @@ public class Playermove : MonoBehaviour
     [SerializeField] private float attackRange;
     [SerializeField] private Transform attackHitbox;
     [SerializeField] private LayerMask whatisEnemy;
+
+    private bool isReloading = false;
+
     
 
     // awake is called when the script instance is being loaded, find component or other object for script
@@ -37,6 +43,11 @@ public class Playermove : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         col = GetComponent<CapsuleCollider2D>();
         replay = GetComponent<playerReplay>();
+
+        if (graphics == null)
+            graphics = animator.transform;
+
+
     }
     // start is called before first update is called after monobehaviour is created, initialize variables and entities here
     private void Start()
@@ -101,14 +112,6 @@ public class Playermove : MonoBehaviour
     public void attackEnd() {
         isAttacking = false;
     }
-
-    // public void DealDamage() {
-    //     Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackHitbox.position, attackRange, whatisEnemy);
-    //     Debug.Log("Hit " + hitEnemies.Length + " enemies.");
-    //     foreach (Collider2D enemy in hitEnemies) {
-    //         enemy.GetComponent<Enemy>()?.TakeDamage(20);
-    //     }
-    // }
     
     
     private void handleCollision()
@@ -137,6 +140,39 @@ public class Playermove : MonoBehaviour
         Debug.Log(playerName + " Jumped");
     }
 
+    public void ReloadLevel()
+    {
+        if (isReloading) return;
+        isReloading = true;
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+  
+
+    public void die()
+    {
+        if (!isAlive) return;
+
+        isAlive = false;
+        canMove = false;
+        canJump = false;
+        rb.linearVelocity = Vector2.zero;
+
+        if (replay != null)
+            replay.StopRecording();
+
+        animator.SetTrigger("die");
+        StartCoroutine(ReloadAfterDelay(1.0f)); 
+        
+    }
+    private IEnumerator ReloadAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+
     private void handleFlip()
     {
         if (rb.linearVelocity.x > 0 && !facingRight)
@@ -151,7 +187,7 @@ public class Playermove : MonoBehaviour
     private void Flip()
     {
         Vector3 s = graphics.localScale;
-        s.x = Mathf.Abs(s.x) * (facingRight ? -1 : 1); // clean, avoids drift
+        s.x = Mathf.Abs(s.x) * (facingRight ? -1 : 1); 
         graphics.localScale = s;
         facingRight = !facingRight;
     }
