@@ -1,7 +1,5 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using System.Collections;
-
 
 public class Playermove : MonoBehaviour
 {
@@ -16,7 +14,7 @@ public class Playermove : MonoBehaviour
     [SerializeField] private float jumpHeight = 6.7f;
     [SerializeField] private float speed = 5.1f; // when you have float value, put f after it, serializeField makes private variable visible and editable in inspector
     private bool isAlive = true;
-    [SerializeField] private bool canMove = true;
+    [SerializeField] public bool canMove = true;
     [SerializeField] private bool canJump = true;
     [SerializeField] private bool isAttacking= false;
     [SerializeField] private Transform graphics; // drag player/Animator here
@@ -46,8 +44,6 @@ public class Playermove : MonoBehaviour
 
         if (graphics == null)
             graphics = animator.transform;
-
-
     }
     // start is called before first update is called after monobehaviour is created, initialize variables and entities here
     private void Start()
@@ -58,7 +54,6 @@ public class Playermove : MonoBehaviour
     // update is called once per frame, check input of player
     void Update()
     {
-        Debug.Log("Update called");
         handleCollision();
         handleInput();
         handleAnimation();
@@ -68,7 +63,6 @@ public class Playermove : MonoBehaviour
     // slower than Update, calculate physics here, called at fixed time intervals, 50 times per second default
     private void FixedUpdate()
     {
-        Debug.Log("FixedUpdate called");
     }
 
     private void handleInput()
@@ -140,38 +134,12 @@ public class Playermove : MonoBehaviour
         Debug.Log(playerName + " Jumped");
     }
 
-    public void ReloadLevel()
+    private void die()
     {
-        if (isReloading) return;
-        isReloading = true;
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
-  
-
-    public void die()
-    {
-        if (!isAlive) return;
-
         isAlive = false;
-        canMove = false;
-        canJump = false;
-        rb.linearVelocity = Vector2.zero;
-
-        if (replay != null)
-            replay.StopRecording();
-
         animator.SetTrigger("die");
-        StartCoroutine(ReloadAfterDelay(1.0f)); 
-        
+        Debug.Log(playerName + " Died");
     }
-    private IEnumerator ReloadAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
 
     private void handleFlip()
     {
@@ -201,6 +169,29 @@ public class Playermove : MonoBehaviour
         if (attackHitbox == null) return;
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackHitbox.position, attackRange);
+    }
+
+    public void FreezePlayer(float seconds)
+    {
+        StartCoroutine(FreezeRoutine(seconds));
+    }
+
+    private IEnumerator FreezeRoutine(float seconds)
+    {
+        Vector2 savedVelocity = rb.linearVelocity;
+        float savedGravity = rb.gravityScale;
+        canMove = false;
+        
+        rb.linearVelocity = Vector2.zero;
+        rb.gravityScale = 0;
+        // 3. The actual wait timer
+        yield return new WaitForSeconds(seconds);
+
+
+        rb.linearVelocity = savedVelocity;
+        rb.gravityScale = savedGravity;
+        
+        canMove = true;
     }
     
 }
