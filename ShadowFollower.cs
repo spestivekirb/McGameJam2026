@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class shadowFollower : MonoBehaviour
 {
@@ -6,7 +7,7 @@ public class shadowFollower : MonoBehaviour
     [SerializeField] private playerReplay recorder;
 
     [Header("Replay")]
-    [SerializeField] private float delaySeconds = 1.0f;
+    [SerializeField] private float delaySeconds = 2.0f;
 
     [Header("Movement")]
     [SerializeField] private float speed = 5.1f;
@@ -20,6 +21,8 @@ public class shadowFollower : MonoBehaviour
     private CapsuleCollider2D col;
 
     private bool isGrounded;
+
+    private bool isFrozen;
     [SerializeField] private bool facingRight = true;
 
     private void Awake()
@@ -27,6 +30,7 @@ public class shadowFollower : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
         col = GetComponent<CapsuleCollider2D>();
+        isFrozen = false;
     }
 
     private void Update()
@@ -42,8 +46,12 @@ public class shadowFollower : MonoBehaviour
 
         float t = Time.time - delaySeconds;
 
+        if (isFrozen) return;
+
+
         if (!recorder.TryGetFrame(t, out var frame))
             return;
+
 
         float targetX = frame.horizontal * speed;
 
@@ -99,5 +107,38 @@ public class shadowFollower : MonoBehaviour
         if (other.CompareTag("Player"))
         {
         }
+    }
+
+    public void ChangeDelay(float delay)
+    {
+        delaySeconds = delay;
+    }
+
+    public float GetDelay()
+    {
+        return delaySeconds;
+    }
+
+    public void FreezeShadow(float seconds)
+    {
+        StartCoroutine(FreezeRoutine(seconds));
+    }
+
+    private IEnumerator FreezeRoutine(float seconds)
+    {
+        Vector2 savedVelocity = rb.linearVelocity;
+        float savedGravity = rb.gravityScale;
+        
+        rb.linearVelocity = Vector2.zero;
+        rb.gravityScale = 0;
+        isFrozen = true;
+        // 3. The actual wait timer
+        yield return new WaitForSeconds(seconds);
+
+
+        rb.linearVelocity = savedVelocity;
+        rb.gravityScale = savedGravity;
+        isFrozen = false;
+        
     }
 }
