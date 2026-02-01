@@ -12,7 +12,7 @@ public class playerAnimationEvent : MonoBehaviour
 
     private void enableMovement() => player.ToggleMovement(true);
 
-    public void DealDamage() => player.DealDamage();
+    // public void DealDamage() => player.DealDamage();
     
     public void AttackEnd() => player.attackEnd();
 
