@@ -4,8 +4,8 @@ using UnityEngine;
 public class Door : MonoBehaviour, IActivatable
 {
 
-    public float speed = 2f;
-    public float openHeight = 3f;
+    public float speed;
+    public float openHeight;
 
     private Vector3 closedPos;
     private Vector3 openPos;
