@@ -10,12 +10,11 @@ public class ColorManager : MonoBehaviour, IActivatable
 
     void Awake()
     {
-        shadow_script = Object.FindAnyObjectByType<shadowFollower>();
+ 
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        blocks = FindObjectsByType<ColorBlock>(FindObjectsSortMode.None);
         foreach (ColorBlock block in blocks)
         {
             block.UpdateState(redOn);
@@ -40,7 +39,7 @@ public class ColorManager : MonoBehaviour, IActivatable
         yield return new WaitForSeconds(delay);
         foreach (ShadowCollider shadowblock in shadowblocks)
         {
-            shadowblock.UpdateState(redOn);
+            shadowblock.UpdateState(newState);
         }
     }
 

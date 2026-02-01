@@ -3,11 +3,13 @@ using UnityEngine;
 
 public class playerReplay : MonoBehaviour
 {
+    public Playermove player_script;
     public struct InputFrame
     {
         public float time;
         public float horizontal;
         public bool jump; 
+
     }
 
     [SerializeField] private float maxRecordSeconds = 10f;
@@ -21,14 +23,21 @@ public class playerReplay : MonoBehaviour
 
 
 
+    void Awake()
+    {
+
+    }
     private void FixedUpdate()
     {
+
+
         // get what player did in this frame
         frames.Add(new InputFrame
         {
             time = Time.time,
             horizontal = Input.GetAxisRaw("Horizontal"),
-            jump = jumpQueued
+            jump = jumpQueued,
+
         });
 
         // jump happened, anything past max record seconds is shaved
@@ -63,4 +72,5 @@ public class playerReplay : MonoBehaviour
         frame = frames[0];
         return true;
     }
+
 }
