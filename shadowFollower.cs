@@ -53,11 +53,15 @@ public class shadowFollower : MonoBehaviour
 
         float t = Time.time - delaySeconds; 
 
+        if (isFrozen) return;
+
+
         if (!recorder.TryGetFrame(t, out var frame))
         {
             rb.linearVelocity = Vector2.zero;
             return;
         }
+
 
         float targetX = frame.horizontal * speed;
 
