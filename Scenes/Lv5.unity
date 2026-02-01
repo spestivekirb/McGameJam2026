@@ -370,7 +370,7 @@ Transform:
   m_GameObject: {fileID: 65058221}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.94, y: 2.39, z: 1}
+  m_LocalPosition: {x: -5.02, y: 1.97, z: 1}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -424,7 +424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac85abf244ea5c9409ff2931803eb591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strikeForce: 25
+  strikeForce: 40
 --- !u!50 &65058226
 Rigidbody2D:
   serializedVersion: 5
@@ -463,7 +463,7 @@ GameObject:
   - component: {fileID: 89837676}
   - component: {fileID: 89837678}
   - component: {fileID: 89837677}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: bridge (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -954,7 +954,7 @@ GameObject:
   - component: {fileID: 251719429}
   - component: {fileID: 251719431}
   - component: {fileID: 251719430}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: bridge (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1251,6 +1251,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 570565219}
   - {fileID: 65058223}
   - {fileID: 1678460429}
   - {fileID: 1875592938}
@@ -1362,7 +1363,7 @@ GameObject:
   - component: {fileID: 369786628}
   - component: {fileID: 369786630}
   - component: {fileID: 369786629}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: bridge (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1493,7 +1494,7 @@ GameObject:
   - component: {fileID: 371719048}
   - component: {fileID: 371719050}
   - component: {fileID: 371719049}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: bridge (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2035,12 +2036,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 570565217}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.6, y: 2.38, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -9.391, y: -0.32299995, z: 2}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 303015306}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &619394800
 GameObject:
@@ -2567,7 +2568,7 @@ GameObject:
   - component: {fileID: 1023374013}
   - component: {fileID: 1023374012}
   - component: {fileID: 1023374011}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2586,18 +2587,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34cee0ed6f9977745918a4bf4c2b09d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnDistance: 1
-  spawnDelay: 0.5
-  recorder: {fileID: 128344950}
-  delaySeconds: 2
-  speed: 5.1
-  jumpHeight: 6.7
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 0
-  player_script: {fileID: 128344948}
-  isGrounded: 0
-  facingRight: 1
 --- !u!70 &1023374012
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2954,7 +2943,7 @@ GameObject:
   - component: {fileID: 1213241683}
   - component: {fileID: 1213241685}
   - component: {fileID: 1213241684}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: bridge (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3172,7 +3161,7 @@ GameObject:
   - component: {fileID: 1234625024}
   - component: {fileID: 1234625026}
   - component: {fileID: 1234625025}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: bridge (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3303,7 +3292,7 @@ GameObject:
   - component: {fileID: 1253534593}
   - component: {fileID: 1253534595}
   - component: {fileID: 1253534594}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: bridge (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3536,7 +3525,7 @@ GameObject:
   - component: {fileID: 1524428442}
   - component: {fileID: 1524428444}
   - component: {fileID: 1524428443}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: bridge (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3720,11 +3709,14 @@ EdgeCollider2D:
   - {x: 0.24126177, y: -0.7389457}
   - {x: 0.24949662, y: -0.88929296}
   - {x: 0.2614077, y: -1.0657341}
-  - {x: 0.2763795, y: -1.128478}
-  - {x: 0.2846113, y: -1.1254225}
-  - {x: 0.3126183, y: -0.93842816}
-  - {x: 0.32787076, y: -0.6419294}
-  - {x: 0.33460355, y: -0.757982}
+  - {x: 0.2780137, y: -1.1751747}
+  - {x: 0.28787977, y: -1.2032504}
+  - {x: 0.3049512, y: -1.1281724}
+  - {x: 0.30723524, y: -1.1083167}
+  - {x: 0.314486, y: -1.0084732}
+  - {x: 0.32600307, y: -0.8364992}
+  - {x: 0.32893136, y: -0.70850015}
+  - {x: 0.33273584, y: -0.87472415}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -3827,7 +3819,7 @@ Transform:
   m_GameObject: {fileID: 1574114109}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.226, z: 0}
   m_LocalScale: {x: 0.35, y: 0.48999998, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4184,7 +4176,7 @@ GameObject:
   - component: {fileID: 1640212014}
   - component: {fileID: 1640212016}
   - component: {fileID: 1640212015}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: bridge (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4400,7 +4392,7 @@ GameObject:
   - component: {fileID: 1650672748}
   - component: {fileID: 1650672750}
   - component: {fileID: 1650672749}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: bridge (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4754,7 +4746,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4352118020821602973, guid: c5e2b6d44d87e3444be20b2f7304a320, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.97300005
+      value: -1.1990001
       objectReference: {fileID: 0}
     - target: {fileID: 4352118020821602973, guid: c5e2b6d44d87e3444be20b2f7304a320, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4936,7 +4928,7 @@ GameObject:
   - component: {fileID: 1807845995}
   - component: {fileID: 1807845994}
   - component: {fileID: 1807845993}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: shadowAnimator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5146,7 +5138,7 @@ GameObject:
   - component: {fileID: 1917189623}
   - component: {fileID: 1917189625}
   - component: {fileID: 1917189624}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: bridge (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5382,7 +5374,7 @@ GameObject:
   - component: {fileID: 1930354055}
   - component: {fileID: 1930354057}
   - component: {fileID: 1930354056}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: bridge (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5513,7 +5505,7 @@ GameObject:
   - component: {fileID: 2007170154}
   - component: {fileID: 2007170156}
   - component: {fileID: 2007170155}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: bridge (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5731,7 +5723,7 @@ GameObject:
   - component: {fileID: 2020354622}
   - component: {fileID: 2020354624}
   - component: {fileID: 2020354623}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: bridge (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6006,7 +5998,7 @@ GameObject:
   - component: {fileID: 2058699894}
   - component: {fileID: 2058699896}
   - component: {fileID: 2058699895}
-  m_Layer: 10
+  m_Layer: 6
   m_Name: bridge (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6188,7 +6180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   riseAmount: 20
   moveSpeed: 4
-  staggerDelay: 0.15
+  staggerDelay: 1
 --- !u!1 &2090565368
 GameObject:
   m_ObjectHideFlags: 0
@@ -6359,7 +6351,7 @@ Transform:
   m_GameObject: {fileID: 2131995689}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.491, z: 0}
+  m_LocalPosition: {x: 0, y: 0.26499993, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6449,7 +6441,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2136037494}
   - component: {fileID: 2136037495}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Spot Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6537,7 +6529,6 @@ SceneRoots:
   - {fileID: 1360721244}
   - {fileID: 549398801}
   - {fileID: 49772219}
-  - {fileID: 570565219}
   - {fileID: 2090565370}
   - {fileID: 110665119}
   - {fileID: 2074186734}
