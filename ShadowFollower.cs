@@ -7,6 +7,7 @@ public class shadowFollower : MonoBehaviour
     [SerializeField] private float spawnDistance = 1f; 
     [SerializeField] private float spawnDelay = 0.5f; 
 
+    public Playermove player_script;
     private Vector3 playerStartPos;
     private bool hasSpawned = false;
 
