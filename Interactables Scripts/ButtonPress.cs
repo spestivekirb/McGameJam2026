@@ -9,7 +9,7 @@ public class ButtonPress : MonoBehaviour
     public GameObject targetObject;
 
     public Transform visualSprite;
-
+    public TransitionScript bridgeScript; // for lvl 5 bridge animation
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,17 +23,32 @@ public class ButtonPress : MonoBehaviour
         
     }
 
+    void animateTransitionLevel5(){
+        // Visually press the button down
+        visualSprite.localPosition = presspos;
+
+        // Trigger the bridge if the reference exists
+        if (bridgeScript != null)
+        {
+            bridgeScript.StartBridgeRise();
+        }
+        else 
+        {
+            Debug.LogError("BridgeSequencer reference is missing on the Button!");
+        }
+    }
 
     void OnTriggerEnter2D(Collider2D other) {
 
-        if (other.CompareTag("Player") || other.CompareTag("Shadow"))
+        if (other.CompareTag("Player") || other.CompareTag("Shadow")|| other.CompareTag("Ball")|| other.CompareTag("Bucket"))
         {   
-
-
-            visualSprite.localPosition = presspos;
-            Debug.LogWarning("Button Pressed");
-
-            
+            if (other.CompareTag("Bucket")){
+                animateTransitionLevel5();
+            }
+            else {
+                visualSprite.localPosition = presspos;
+                Debug.LogWarning("Button Pressed");
+            }
         }
         IActivatable action = targetObject.GetComponent<IActivatable>();
 
@@ -48,14 +63,14 @@ public class ButtonPress : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other) {
         
-        if (other.CompareTag("Player") || other.CompareTag("Shadow"))
+        if (other.CompareTag("Player") || other.CompareTag("Shadow")|| other.CompareTag("Ball"))
         {
 
 
             visualSprite.localPosition = startpos;
 
         }
-         IActivatable action = targetObject.GetComponent<IActivatable>();
+        IActivatable action = targetObject.GetComponent<IActivatable>();
 
         if (action != null)
         {
