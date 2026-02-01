@@ -28,6 +28,9 @@ public class Playermove : MonoBehaviour
     [SerializeField] private float attackRange;
     [SerializeField] private Transform attackHitbox;
     [SerializeField] private LayerMask whatisEnemy;
+
+    private bool isReloading = false;
+
     
 
     // awake is called when the script instance is being loaded, find component or other object for script
@@ -152,7 +155,7 @@ public class Playermove : MonoBehaviour
     private void Flip()
     {
         Vector3 s = graphics.localScale;
-        s.x = Mathf.Abs(s.x) * (facingRight ? -1 : 1); // clean, avoids drift
+        s.x = Mathf.Abs(s.x) * (facingRight ? -1 : 1); 
         graphics.localScale = s;
         facingRight = !facingRight;
     }
