@@ -134,13 +134,19 @@ public class Playermove : MonoBehaviour
         Debug.Log(playerName + " Jumped");
     }
 
-    private void die()
+    public void die()
     {
+        if (!isAlive) return;
         isAlive = false;
-        animator.SetTrigger("die");
-        Debug.Log(playerName + " Died");
+        StartCoroutine(ReloadAfterDelay(1f));
     }
 
+    private IEnumerator ReloadAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    
     private void handleFlip()
     {
         if (rb.linearVelocity.x > 0 && !facingRight)
