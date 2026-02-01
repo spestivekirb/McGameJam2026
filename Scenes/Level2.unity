@@ -7551,8 +7551,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d9565f4d5eed347a3db82233e8374b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player_script: {fileID: 0}
-  maxRecordSeconds: 10
 --- !u!70 &762135254
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -10572,7 +10570,7 @@ Transform:
   m_GameObject: {fileID: 944348782}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.2111, y: 1.36, z: 1}
+  m_LocalPosition: {x: 5.2111, y: 1.48, z: 1}
   m_LocalScale: {x: 14.453486, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13677,16 +13675,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34cee0ed6f9977745918a4bf4c2b09d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recorder: {fileID: 762135253}
-  delaySeconds: 4
-  speed: 5.1
-  jumpHeight: 11
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 64
-  player_script: {fileID: 0}
-  isGrounded: 0
-  facingRight: 1
 --- !u!70 &1275616389
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -19477,6 +19465,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1885678168}
   - component: {fileID: 1885678167}
+  - component: {fileID: 1885678170}
+  - component: {fileID: 1885678169}
   m_Layer: 0
   m_Name: Dungeon Tile Set_2 (1)
   m_TagString: Untagged
@@ -19554,6 +19544,61 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1699049442}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1885678169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885678165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c8b15ec611f46c40b33474e98b1f6f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!68 &1885678170
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885678165}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -1.4289656, y: -1.4855707}
+  - {x: 1.5458078, y: -1.4855705}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &1891258750
 GameObject:
   m_ObjectHideFlags: 0
