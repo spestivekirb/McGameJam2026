@@ -139,7 +139,7 @@ public class Playermove : MonoBehaviour
     {
         if (!isAlive) return;
         isAlive = false;
-        animator.SetTrigger("die");
+        animator.Play("die");
         StartCoroutine(ReloadAfterDelay(1f));
     }
 
