@@ -1771,8 +1771,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34cee0ed6f9977745918a4bf4c2b09d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnDistance: 1
+  spawnDistance: 0.5
   spawnDelay: 0.5
+  player_script: {fileID: 128344948}
   recorder: {fileID: 128344950}
   delaySeconds: 2
   speed: 5.1
@@ -1780,7 +1781,6 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 0
-  player_script: {fileID: 128344948}
   isGrounded: 0
   facingRight: 1
 --- !u!70 &201852170
@@ -1856,7 +1856,7 @@ Transform:
   m_GameObject: {fileID: 201852168}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.37, y: 3.37, z: -1}
+  m_LocalPosition: {x: -5.52, y: 3.37, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23867,3 +23867,4 @@ SceneRoots:
   - {fileID: 554465861}
   - {fileID: 498584400}
   - {fileID: 1805840488}
+  - {fileID: 1236145461}
