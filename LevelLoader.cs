@@ -23,7 +23,7 @@ public class LevelLoader : MonoBehaviour
         if (!triggered && other.CompareTag("Player"))
         {
             triggered = true;
-            StartCoroutine(LoadNextLevelDelayed(1.5f));
+            StartCoroutine(LoadNextLevelDelayed(1f));
         }
     }
 

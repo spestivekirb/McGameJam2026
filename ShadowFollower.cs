@@ -27,9 +27,8 @@ public class shadowFollower : MonoBehaviour
     private Rigidbody2D rb;
     private CapsuleCollider2D col;
 
-    public Playermove player_script;
-
     [SerializeField] private bool isGrounded;
+
 
     private bool isFrozen;
     [SerializeField] private bool facingRight = true;
