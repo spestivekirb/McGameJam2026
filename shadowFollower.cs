@@ -3,6 +3,13 @@ using System.Collections;
 
 public class shadowFollower : MonoBehaviour
 {
+    [Header("Spawn Conditions")]
+    [SerializeField] private float spawnDistance = 1f; 
+    [SerializeField] private float spawnDelay = 0.5f; 
+
+    private Vector3 playerStartPos;
+    private bool hasSpawned = false;
+
     [Header("References")]
     [SerializeField] private playerReplay recorder;
 
@@ -36,12 +43,31 @@ public class shadowFollower : MonoBehaviour
         col = GetComponent<CapsuleCollider2D>();
         player_script = Object.FindAnyObjectByType<Playermove>();
         isFrozen = false;
+
+        if (player_script != null)
+        playerStartPos = player_script.transform.position;
+        gameObject.SetActive(false);
     }
 
     private void Update()
     {
+        if (!hasSpawned)
+    {
+        CheckSpawnCondition();
+        return; // don’t run movement logic yet
+    }
         HandleCollision();
+        if (!hasSpawned)
+    {
+        CheckSpawnCondition();
+        return; // don’t run movement logic yet
+    }
         HandleAnimation();
+        if (!hasSpawned)
+    {
+        CheckSpawnCondition();
+        return; // don’t run movement logic yet
+    }
         HandleFlip();
     }
 
@@ -145,5 +171,27 @@ public class shadowFollower : MonoBehaviour
         rb.gravityScale = savedGravity;
         isFrozen = false;
         
+    }
+    private void CheckSpawnCondition()
+    {
+        if (hasSpawned || player_script == null) return;
+
+        float moved = Vector3.Distance(
+            player_script.transform.position,
+            playerStartPos
+        );
+
+        if (moved >= spawnDistance)
+        {
+            hasSpawned = true;
+            StartCoroutine(EnableAfterDelay());
+        }
+    }
+    private IEnumerator EnableAfterDelay()
+    {
+        yield return new WaitForSeconds(spawnDelay);
+
+        gameObject.SetActive(true);
+        isFrozen = false;
     }
 }
