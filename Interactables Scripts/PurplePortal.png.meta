@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 54aeffbfd0ddf40c5b73793473347d65
+guid: 7231170cc66f2464aa5c64243cacbd92
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8707638730532301438
-    second: OrangePortal_0
+      213: -1991807578920059006
+    second: PurplePortal_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,10 +48,10 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: OrangePortal_0
+      name: PurplePortal_0
       rect:
         serializedVersion: 2
         x: 8
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e7aafc55a4fb7d870800000000000000
-      internalID: 8707638730532301438
+      spriteID: 28ff98d5f8dab54e0800000000000000
+      internalID: -1991807578920059006
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      OrangePortal_0: 8707638730532301438
+      PurplePortal_0: -1991807578920059006
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
