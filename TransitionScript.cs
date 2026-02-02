@@ -25,7 +25,7 @@ public class TransitionScript : MonoBehaviour
             yield return new WaitForSeconds(delayBetweenItems);
         }
         // // now call bridge rise
-        // bridgeInScript.PlayIntro();
+        bridgeInScript.PlayIntro();
     }
 
     IEnumerator MoveItem(Transform item)

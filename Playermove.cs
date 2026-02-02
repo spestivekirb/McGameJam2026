@@ -82,7 +82,7 @@ public class Playermove : MonoBehaviour
             {
                 if (isAlive && isGrounded)
                 {
-                    attack();
+                    //attack();
                 }
             }
         } else {

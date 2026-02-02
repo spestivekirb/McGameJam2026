@@ -46,6 +46,27 @@ public class shadowFollower : MonoBehaviour
 
         if (player_script != null)
         playerStartPos = player_script.transform.position;
+
+        StartCoroutine(ShadowSpawn(delaySeconds));
+    }
+
+
+    private IEnumerator ShadowSpawn(float seconds)
+    {
+        SpriteRenderer sprite = GetComponent<SpriteRenderer>(); 
+        if (sprite != null) sprite.enabled = false;
+
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null) col.enabled = false;
+
+        if (rb != null) rb.simulated = false; 
+        
+        yield return new WaitForSeconds(seconds);
+
+        if (sprite != null) sprite.enabled = true;
+        if (col != null) col.enabled = true;
+
+        if (rb != null) rb.simulated = true;
     }
 
     private void Update()
@@ -132,10 +153,20 @@ public class shadowFollower : MonoBehaviour
         facingRight = !facingRight;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.CompareTag("Player"))
+         if (other.gameObject.CompareTag("Player"))
         {
+            Playermove player = other.gameObject.GetComponent<Playermove>();
+            if (player != null)
+            {
+                player.die();
+                Debug.Log("Pillar crushed the player!");
+                Collider2D col = GetComponent<Collider2D>();
+                if (col != null) col.enabled = false;
+                rb.linearVelocity = Vector2.zero; 
+                rb.simulated = false;       
+            }
         }
     }
 
@@ -193,4 +224,5 @@ public class shadowFollower : MonoBehaviour
         gameObject.SetActive(true);
         isFrozen = false;
     }
+
 }
