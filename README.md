@@ -14,7 +14,7 @@ This is a fork of the repository used for our team's submission for the 48-hour 
 - Engine: Unity
 - Version Control: Git/GitHub
 - Art: Aesprite
-- Audio: WaveLab
+- Audio: FL Studio
 
 ## Link to Game
 https://itch.io/jam/mcgamejam-2026/rate/4252334
